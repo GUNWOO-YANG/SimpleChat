@@ -17,7 +17,7 @@ internal class Program
 
         app.MapHub<SimpleChart>("/simplechat");
 
-        //app.MapGet("/", () => "Hello World!");
+        //app.MapGet("/", () => "Hello World!¤±¤±¤±");
 
 
         app.Run();
