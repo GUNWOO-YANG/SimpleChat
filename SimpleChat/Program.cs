@@ -1,6 +1,25 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using SimpleChat.Hubs;
+using System.Runtime.CompilerServices;
 
-app.MapGet("/", () => "Hello World!");
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddRazorPages();
+        builder.Services.AddSignalR();
 
-app.Run();
+        var app = builder.Build();
+
+
+        app.UseStaticFiles();
+        app.MapRazorPages();
+
+        app.MapHub<SimpleChart>("/simplechat");
+
+        //app.MapGet("/", () => "Hello World!");
+
+
+        app.Run();
+    }
+}
